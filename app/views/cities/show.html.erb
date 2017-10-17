@@ -1,27 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>City:</strong>
   <%= @city.name %>
 </p>
 
 <p>
-  <strong>Country code:</strong>
-  <%= @city.country_code %>
+  <strong>Country:</strong>
+  <%= format_country @city.country_code %>
 </p>
 
-<pre>
-  <%= @data %>
-</pre>
+  <%#<%= @data %>
 
 <p>
 <strong>Updated at: </strong><%= @time_stamp.strftime('%I:%M %p, %a %e %b %Y') %><br>
-<strong>Temperature: </strong>
-<%= k_to_c @temp %> (min: <%= k_to_c @temp_min %>, max: <%= k_to_c @temp_max %>)<br>
+<strong>Temperature: </strong><%= k_to_c @temp %> (min: <%= k_to_c @temp_min %>, max: <%= k_to_c @temp_max %>)<br>
+<strong>Description: </strong><%= @weather_description %><br>
 <strong>Pressure: </strong><%= @press %> hPa <br>
 <strong>Relative humidity: </strong><%= @rel_humidity %>%
 </p>
 
+<p>
+<%= image_tag @photo_url %><br>
+Photo by: <%= link_to @photo_author, @photo_author_website %>
+</p>
 
 <%= link_to 'Edit', edit_city_path(@city) %> |
 <%= link_to 'Back', cities_path %>
+

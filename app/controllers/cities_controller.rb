@@ -23,6 +23,15 @@ class CitiesController < ApplicationController
     @rel_humidity = response['main']['humidity']
     # Time of data calculation, unix, UTC
     @time_stamp = Time.at(response['dt']).to_datetime
+
+    @weather_description = response['weather'][0]['description']
+
+    photo_response = Unsplash::Photo.random(query: @weather_description)
+
+    @photo_url = photo_response.urls.small
+    @photo_author = photo_response.user.name
+    @photo_author_website = photo_response.user.links.html
+
   end
 
   # GET /cities/new

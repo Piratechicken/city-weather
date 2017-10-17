@@ -7,8 +7,13 @@ end
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+# Unsplash
+gem 'unsplash'
+# Format country names
+gem 'countries'
+
 # Makes http fun again? Does web get requests: https://johnnunemaker.com/httparty/
-gem 'httparty'
+gem 'httparty', '~> 0.13.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

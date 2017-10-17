@@ -4,4 +4,10 @@ module CitiesHelper
     "#{(temp_kelvin - 273.15).round(1)} °C"
   end
 
+  def format_country(country_code)
+    country = ISO3166::Country.new(country_code)
+    country.local_name
+  end
+  
+
 end
